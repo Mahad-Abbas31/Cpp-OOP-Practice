@@ -1,0 +1,14 @@
+
+--- Student Report ---
+Name: Mahad
+ID: 2501366
+Marks: 90 97 99 98 
+Total: 384
+Average: 96
+
+--- Student Report ---
+Name: Hammad
+ID: 2501302
+Marks: 79 97 78 89 58 
+Total: 401
+Average: 80.2
