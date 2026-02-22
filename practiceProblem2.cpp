@@ -73,13 +73,9 @@ public:
     }
 
     // ___ Getter Functions
-    string getName() const{
-        return name;
-    }
+    string getName() const{    return name;    }
 
-    int getId(){
-        return id;
-    }
+    int getId(){    return id;    }
 
     // ___ Input Marks Function
     void inputMarks(){
