@@ -1,0 +1,5 @@
+TonyStark     IronMan          Brain          America     50    7
+BruceBanner   Hulk             Gamma          America     41    5
+Scott         AntMan           PymParticles   America     41    3
+SteveRoggers  CaptainAmerica   SuperSerum     America     41    2
+HulkBuster    Tech             Brain          America     50    7
