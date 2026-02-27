@@ -47,7 +47,7 @@ using namespace std;
         cout << region << endl;
         cout << level << endl;
 
-        for(int i=0; i<=stars; i++)    cout << "*";
+        for(int i=0; i<stars; i++)    cout << "*";
         cout << endl;
         
         for(int i=0; i<health; i++)    cout << "|";
@@ -78,7 +78,7 @@ using namespace std;
 
     int Hero::getlevel(){    return level;    }
 
-    int Hero::getStars(){    return level;    }
+    int Hero::getStars(){    return stars;    }
 
     // ___ Level Changing Methods
     void Hero::increaseLevel(){    level = level + 1;    }
@@ -89,7 +89,7 @@ using namespace std;
     void Hero::championList(Hero arr[], int size){
         ifstream fin("champions.txt");
             
-        for(int i=0; i<5; i++){
+        for(int i=0; i<size; i++){
             fin >> arr[i].identity >> arr[i].name
                 >> arr[i].power >> arr[i].region
                 >> arr[i].level >> arr[i].stars;
