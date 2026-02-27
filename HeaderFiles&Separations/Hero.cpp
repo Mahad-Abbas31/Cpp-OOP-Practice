@@ -99,38 +99,38 @@ using namespace std;
     }
 
     // ___ Attack Methods
-    void Hero::lightAttack1(){
-        health = health - (rand()%5 + 2);    
-        if(health < 0)
-            health = 0;
+    void Hero::lightAttack1(Hero &enemy){
+        enemy.health = enemy.health - (rand()%5 + 2);    
+        if(enemy.health < 0)
+            enemy.health = 0;
     }
 
-    void Hero::highAttack1(){    
-        health = health - (rand()%9 + 4);
-        if(health < 0)
-            health = 0;    
+    void Hero::highAttack1(Hero &enemy){    
+        enemy.health = enemy.health - (rand()%9 + 4);
+        if(enemy.health < 0)
+            enemy.health = 0;    
     }
 
-    void Hero::lightAttack2(){    
-        health = health - (rand()%5 + 2);    
-        if(health < 0)
-            health = 0;
+    void Hero::lightAttack2(Hero &enemy){    
+        enemy.health = enemy.health - (rand()%5 + 2);    
+        if(enemy.health < 0)
+            enemy.health = 0;
     }
 
-    void Hero::highAttack2(){    
-        health = health - (rand()%9 + 4);    
-        if(health < 0)
-            health = 0;
+    void Hero::highAttack2(Hero &enemy){    
+        enemy.health = enemy.health - (rand()%9 + 4);    
+        if(enemy.health < 0)
+            enemy.health = 0;
     }
 
-    void Hero::special1(){    
-        health = health - (rand()%15 + 7);            
-        if(health < 0)
-            health = 0;
+    void Hero::special1(Hero &enemy){    
+        enemy.health = enemy.health - (rand()%15 + 7);            
+        if(enemy.health < 0)
+            enemy.health = 0;
     }
 
-    void Hero::special2(){    
-        health = health - (rand()%15 + 7);    
-        if(health < 0)
-            health = 0;
+    void Hero::special2(Hero &enemy){    
+        enemy.health = enemy.health - (rand()%15 + 7);    
+        if(enemy.health < 0)
+            enemy.health = 0;
     }
