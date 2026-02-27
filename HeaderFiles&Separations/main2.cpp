@@ -1,10 +1,14 @@
 #include<iostream>
+#include<cstdlib>
+#include<ctime>
 #include<string>
 #include"Hero.h"
 
 using namespace std;
 
 int main(){
+    srand(time(0));
+
     Hero ironman("TonyStark", "IronMan", "Brain", "America", 50, 7);
     ironman.display();
 
@@ -22,8 +26,6 @@ int main(){
     hulkBuster.setPower("Tech");
     hulkBuster.increaseLevel();
     hulkBuster.display();
-
-    
 
     return 0;
 }
