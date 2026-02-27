@@ -2,12 +2,19 @@
 #include<fstream>
 #include"Hero.h"
 #include<cstdlib>
+#include<ctime>
 
 using namespace std;
 
     // - Non-parameterized constructors.
     Hero::Hero(){
-        cout << "I am an Avenger!";
+        identity = "Unknown";
+        name = "Unknown";
+        power = "Unknown";
+        region = "Unknown";
+        level = 0;
+        stars = 0;
+        health = 100;
     }
     
     // - Parameterized constructors.
@@ -18,6 +25,7 @@ using namespace std;
         this->region = region;
         this->level = level;
         this->stars = stars;
+        this->health = 100;
     }
 
     // ___ Copy Constructor
@@ -28,6 +36,7 @@ using namespace std;
         region = obj.region;
         level = obj.level;
         stars = obj.stars;
+        health = 100;
     }
 
     //___ Dispaly Function
@@ -41,7 +50,7 @@ using namespace std;
         for(int i=0; i<=stars; i++)    cout << "*";
         cout << endl;
         
-        for(int i=0; i<=level; i++)    cout << "*";
+        for(int i=0; i<health; i++)    cout << "|";
         cout << endl;
     }
 
@@ -87,4 +96,41 @@ using namespace std;
         }
 
         fin.close();
+    }
+
+    // ___ Attack Methods
+    void Hero::lightAttack1(){
+        health = health - (rand()%5 + 2);    
+        if(health < 0)
+            health = 0;
+    }
+
+    void Hero::highAttack1(){    
+        health = health - (rand()%9 + 4);
+        if(health < 0)
+            health = 0;    
+    }
+
+    void Hero::lightAttack2(){    
+        health = health - (rand()%5 + 2);    
+        if(health < 0)
+            health = 0;
+    }
+
+    void Hero::highAttack2(){    
+        health = health - (rand()%9 + 4);    
+        if(health < 0)
+            health = 0;
+    }
+
+    void Hero::special1(){    
+        health = health - (rand()%15 + 7);            
+        if(health < 0)
+            health = 0;
+    }
+
+    void Hero::special2(){    
+        health = health - (rand()%15 + 7);    
+        if(health < 0)
+            health = 0;
     }
