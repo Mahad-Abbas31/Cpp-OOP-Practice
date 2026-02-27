@@ -13,7 +13,8 @@ class Hero{
     string region;
     int level;
     int stars;
-    
+    int health;
+
 public:
     Hero();
     Hero(string i, string n, string p, string r, int l, int s); 
@@ -43,6 +44,14 @@ public:
 
     
     void championList(Hero arr[], int size);
+
+    // ___ Attack Methods
+    void lightAttack1();
+    void highAttack1();
+    void lightAttack2();
+    void highAttack2();
+    void special1();
+    void special2();
 };
 
 #endif
