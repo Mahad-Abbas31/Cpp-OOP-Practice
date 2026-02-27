@@ -45,13 +45,13 @@ public:
     
     void championList(Hero arr[], int size);
 
-    // ___ Attack Methods
-    void lightAttack1();
-    void highAttack1();
-    void lightAttack2();
-    void highAttack2();
-    void special1();
-    void special2();
+    
+    void lightAttack1(Hero &enemy);
+    void highAttack1(Hero &enemy);
+    void lightAttack2(Hero &enemy);
+    void highAttack2(Hero &enemy);
+    void special1(Hero &enemy);
+    void special2(Hero &enemy);
 };
 
 #endif
