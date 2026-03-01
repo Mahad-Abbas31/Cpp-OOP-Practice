@@ -37,6 +37,7 @@ public:
     string getregion();
     int getlevel();
     int getStars();
+    int getHealth();
 
     // ___ Level Changing Methods
     void increaseLevel();
@@ -52,6 +53,9 @@ public:
     void highAttack2(Hero &enemy);
     void special1(Hero &enemy);
     void special2(Hero &enemy);
+
+    void takeTurn(Hero &defender);
+
 };
 
 #endif
