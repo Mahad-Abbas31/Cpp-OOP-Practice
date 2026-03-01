@@ -41,17 +41,18 @@ using namespace std;
 
     //___ Dispaly Function
     void Hero::display(){
-        cout << identity << endl;
-        cout << name << endl;
-        cout << power << endl;
-        cout << region << endl;
-        cout << level << endl;
+        cout << "Identity: " << identity << endl;
+        cout << "Name: " << name << endl;
+        cout << "Power Type: " << power << endl;
+        cout << "Level: " << level << endl;
 
+        cout << "Stars: ";
         for(int i=0; i<stars; i++)    cout << "*";
         cout << endl;
         
+        cout << health << "% : ";
         for(int i=0; i<health; i++)    cout << "|";
-        cout << endl;
+        cout << endl << endl;
     }
 
     // ___ SetterFunctions
@@ -79,6 +80,8 @@ using namespace std;
     int Hero::getlevel(){    return level;    }
 
     int Hero::getStars(){    return stars;    }
+
+    int Hero::getHealth(){    return health;    }
 
     // ___ Level Changing Methods
     void Hero::increaseLevel(){    level = level + 1;    }
@@ -134,3 +137,31 @@ using namespace std;
         if(enemy.health < 0)
             enemy.health = 0;
     }
+
+    void Hero::takeTurn(Hero &defender) {
+        int op1;
+        
+        cout << "-------------------------------\n";
+        cout << "      " << getName() << "'s Turn\n";
+        cout << "  Select the Option to Attack:\n";
+        cout << "-------------------------------\n";
+        cout << "1) Light Attack 1\n";
+        cout << "2) Light Attack 2\n";
+        cout << "3) Heavy Attack 1\n";
+        cout << "4) Heavy Attack 2\n";
+        cout << "5) Special Attack 1\n";
+        cout << "6) Special Attack 2\n";
+        cin >> op1;
+        
+        switch (op1)
+        {
+            case 1:    lightAttack1(defender);    break;
+            case 2:    lightAttack2(defender);    break;
+            case 3:    highAttack1(defender);    break;
+            case 4:    highAttack2(defender);    break;
+            case 5:    special1(defender);    break;
+            case 6:    special2(defender);    break;
+            default:    break;
+        }
+    }
+
