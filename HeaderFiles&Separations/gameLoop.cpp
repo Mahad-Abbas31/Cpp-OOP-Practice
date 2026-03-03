@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// __ Have to make it universal for all heroes, so that we can use it in the future for any hero
 int main(){
     srand(time(0));
 
