@@ -55,6 +55,7 @@ public:
     void special2(Hero &enemy);
 
     void takeTurn(Hero &defender);
+    void gameLoop(Hero &player, Hero &enemy);
 
 };
 
