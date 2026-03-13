@@ -56,31 +56,20 @@ using namespace std;
     }
 
     // ___ SetterFunctions
-    void Hero::setIdentity(string identity){    this->identity = identity;    }
-    
+    void Hero::setIdentity(string identity){    this->identity = identity;    }    
     void Hero::setName(string name){    this->name = name;    }
-    
     void Hero::setPower(string power){    this->power = power;    }
-    
     void Hero::setregion(string region){    this->region = region;    }
-    
     void Hero::setlevel(int level){    this->level = level;    }
-    
     void Hero::setStars(int stars){    this->stars = stars;    }
 
     // ___ GetterFunctions
     string Hero::getIdentity(){    return identity;    }
-
     string Hero::getName(){    return name;    }
-
     string Hero::getpower(){    return power;    }
-
     string Hero::getregion(){    return region;    }
-
     int Hero::getlevel(){    return level;    }
-
     int Hero::getStars(){    return stars;    }
-
     int Hero::getHealth(){    return health;    }
 
     // ___ Level Changing Methods
@@ -165,3 +154,20 @@ using namespace std;
         }
     }
 
+    void Hero::gameLoop(Hero &player, Hero &enemy){   
+        
+        while(player.getHealth()>0  &&  enemy.getHealth()>0 ){
+            
+            player.takeTurn(enemy);        
+            player.display();
+            
+            if (enemy.getHealth() <= 0) {
+                cout << "\n*** " << enemy.getName() << " has been defeated! "
+                << player.getName() << " wins! ***\n";
+                break;
+            }
+            
+            enemy.takeTurn(player);
+            enemy.display();
+        }
+    }
