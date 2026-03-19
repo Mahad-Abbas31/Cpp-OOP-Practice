@@ -1,59 +1,32 @@
 #include <iostream>
+
 using namespace std;
 
-// class Rectangle{
-//     int width, height;
-//     static int NoOfRectangles;
-
-// public:
-//     Rectangle(){
-//         width = 0;
-//         height = 0;
-//         NoOfRectangles++;
-//     }
-
-//     static int getTotalRectangles(){
-//         return NoOfRectangles;
-//     }
-        
-// };
-
-// int Rectangle::NoOfRectangles=0;
-
-// int main(){
-//     Rectangle r1;
-//     Rectangle r2;
-//     Rectangle r3;
-//     Rectangle r4;
-//     Rectangle r5;
-//     cout << Rectangle::getTotalRectangles ();
+// ___ Not Change 
+// void func1(int i){
+//     static int staticInt = i;   
+//     cout << staticInt << endl;
 // }
 
+// ___ Change
+// void func1(int i){
+//     static int staticInt;
+//     staticInt = i;   
+//     cout << staticInt << endl;
+// }
 
-class Test{
-    int i,j;
+// ___ Dedault Value (0)
+void func1(int i){
+    static int staticInt;
+    cout << staticInt << endl;
+}
 
-public:
-    Test(int x, int y){
-        i=x;
-        j=y;
-    }
-
-    void display(){
-        cout << "i: " << i << ", j: " << j << endl;
-    }
-
-    void displayArray(Test arr[], int size){
-        for(int k=0; k<size; k++){
-            arr[k].display();
-        }
-    }
-};
 
 int main(){
 
-    Test a(1,1), b(2,2);
-    Test array[2]= {a,b};
-    
-    a.displayArray(array, 2);
+    func1(1);
+    func1(2);
+    // ___ Error (Accces is Limited to the Function while LifeTime is throughout the Program)
+    // cout << staticInt << endl;              
+
 }
