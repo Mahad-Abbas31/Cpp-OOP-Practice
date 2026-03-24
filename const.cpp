@@ -46,7 +46,18 @@ int main(){
 
 
     // ___ CASE 6: const ptr to obj
+    math * const ptr2 = &m1;
+    // ptr2 = &m2;                 // ___ ❌ Error 
+    ptr2->setX(50);                // ___ ✅ OK    
     
+    
+    // ___ CASE 7: const ptr to const obj
+    const math * const ptr3 = &m1;
+    // ptr3 = &m2;                 // ___ ❌ Error 
+    // ptr3->setX(50);             // ___ ❌ Error 
+    
+    
+
 }
 
 // ___ FUNCTIONS ___
