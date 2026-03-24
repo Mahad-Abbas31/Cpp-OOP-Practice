@@ -15,7 +15,7 @@ class math{
     void setX(int m) {    x = m;       }
 
     // ___ CASE 3: const member function (GETTERs)
-    int getX() const {    return x;    }        // const function
+    int getX() const {    return x;    }        // ___ const function
 };
 
 
@@ -28,18 +28,30 @@ void print(const math &s);
 int main(){
     // ___ CASE 1: const variable
     const int x = 10;
-    // x = 20;   // ❌ Error
+    // x = 20;                     // ___ ❌ Error
 
 
     // ___ CASE 2: const objects
     const math t;
-    // t.x = 5;   // ❌ Error
+    // t.x = 5;                    // ___ ❌ Error
 
+
+    // ___ CASE 5: ptr to const obj
+    math m1;
+    math m2;
+    const math *ptr = &m1;
+
+    ptr = &m2;                     // ___ ✅ OK
+    // ptr->setX(50);              // ___ ❌ Error 
+
+
+    // ___ CASE 6: const ptr to obj
+    
 }
 
 // ___ FUNCTIONS ___
 
 // ___ CASE 4: const with function parameters (pass by reference)
 void print(const math &s) {
-    // s.x = 50;  // ❌ not allowed
+    // s.x = 50;                  // ___ ❌ Error 
 }
