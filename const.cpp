@@ -3,7 +3,6 @@
 using namespace std;
 
 
-
 // ___ MATH Class ___
 class math{
   public:
@@ -66,3 +65,16 @@ int main(){
 void print(const math &s) {
     // s.x = 50;                  // ___ ❌ Error 
 }
+
+
+
+/*
+______________________________________________________________
+*       Declaration      |  Change pointer  | Change object  *
+* ---------------------- | ---------------  | -------------- *
+*  math *p               |       ✅        |       ✅       *
+*  const math *p         |       ✅        |       ❌       *
+*  math * const p        |       ❌        |       ✅       *
+*  const math * const p  |       ❌        |       ❌       *
+--------------------------------------------------------------
+*/
