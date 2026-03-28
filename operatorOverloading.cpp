@@ -1,45 +1,101 @@
+/*
+-->Operator Overloading
+   "In C++, we can change the way operators e.g., +, -, <, >, etc., work for
+    user-defined types like objects and structures. This is known as operator
+    overloading"
+
+-> Characteristcs
+
+*/
+
 #include<iostream>
 
 using namespace std;
 
 class Box{
-    int height;
-    int width;
-    int length;
+    int hei;
+    int wid;
+    int len;
+    int volume;
 
     static int count;
 
-    public:
-
-    Box(int w, int l, int h){
-        width = w;
-        height = h;
-        length = l;
+  public:
+    // ____ Constructor
+    Box(int len = 0, int hei = 0, int wid = 0){
+        this->len = len;
+        this->wid = wid;
+        this->hei = hei;
+        this->volume = hei * wid * len;
 
         count++;
     }
 
+    // ____ Setters
+    void setHei(int hei){       this->hei = hei;        }    
+    void setWid(int wid){       this->wid = wid;        }
+    void setLen(int len){       this->len = len;        }
+
+    // ____ Getters
+    int getHei(){       return hei;        }
+    int getWid(){       return wid;        }
+    int getLen(){       return len;        }
+    int getVol(){       return volume;     }
+    
+    // ____ Display
+    void display(){
+        cout << "\nHeight: " << hei
+             << "\n Width: " << wid
+             << "\nLength: " << len << endl;
+    }
+
+    // ____ (+)Overloading
     Box operator+(Box b){
         Box temp(0, 0, 0);
 
-        temp.width = this->width + b.width;
-        temp.height = this->height + b.height;
-        temp.length = this->length + b.length;
+        temp.wid = this->wid + b.wid;
+        temp.hei = this->hei + b.hei;
+        temp.len = this->len + b.len;
 
         return temp;
     }
 
-    void display(){
-        cout << "Height: " << height << endl
-             << "Width: " << width << endl
-             << "Length: " << length << endl;
+    // ____ (-)Overloading
+    Box operator-(Box b){
+        Box temp(0, 0, 0);
+
+        temp.wid = this->wid - b.wid;
+        temp.len = this->len - b.len;
+        temp.hei = this->hei - b.hei;
+
+        return temp;
+    }
+
+    // ____ (<)Overloading
+    bool operator<(const Box &b){
+        if(volume < b.volume)
+            return true;
+        
+        return false;
+    }
+
+    // ____ (>)Overloadingd
+    bool operator>(const Box &b){
+        if(volume > b.volume)
+            return true;
+        
+        return false;
     }
 };
 
 int Box::count = 0;
 
 int main(){
-    Box b1(2,3,4), b2(4,5,6);
+    Box b1(2, 3, 4);
+    Box b2(4, 5, 2);
 
-     (b1+b2).display();
+    if(b1<b2)
+        cout << "b2 is the larger Box\n";
+    else
+        cout << "b1 is the larger Box\n";
 }
