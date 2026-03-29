@@ -4,8 +4,24 @@
     user-defined types like objects and structures. This is known as operator
     overloading"
 
--> Characteristcs
+-> Why Use It?
+    - Makes code more readable and natural
+    - Lets objects behave like real-world entities
+    - Improves code clarity
 
+-> Important Rules
+    - You cannot create new operators, only overload existing ones
+    - Some operators cannot be overloaded, like:
+        :: (scope resolution)
+        . (member access)
+        ?: (ternary)
+        sizeof
+    - At least one operand must be a user-defined type
+    - The precedence of an operator is NOT affected due to overloading
+    - Associativity is NOT changed due to overloading
+        . Unary operators and assignment operator are right associative
+    - Always write code representing the operator
+        . Adding subtraction code inside the + operator will create chaos
 */
 
 #include<iostream>
@@ -87,6 +103,10 @@ class Box{
         return false;
     }
 
+    /* Why are we returning ostream &?
+        - It allows us to “chain” output commands together
+        - And reference “&” to avoid creating new object
+    */
     // ____ (<<)Stream Operator Overloading
     friend ostream &operator<<(ostream &output, const Box &b){
             output << "\nHeight: " << b.hei
