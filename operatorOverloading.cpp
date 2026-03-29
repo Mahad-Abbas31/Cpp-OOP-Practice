@@ -79,13 +79,30 @@ class Box{
         return false;
     }
 
-    // ____ (>)Overloadingd
+    // ____ (>)Overloading
     bool operator>(const Box &b){
         if(volume > b.volume)
             return true;
         
         return false;
     }
+
+    // ____ (<<)Stream Operator Overloading
+    friend ostream &operator<<(ostream &output, const Box &b){
+            output << "\nHeight: " << b.hei
+                   << "\n Width: " << b.wid
+                   << "\nLength: " << b.len << endl;
+            
+            return output;
+    }
+
+    // ____ (>>)Stream Operator Overloading (No const class for input)
+    friend istream &operator>>(istream &input, Box &b){
+            input >> b.hei >> b.wid >> b.len;
+            
+            return input;
+    }
+
 };
 
 int Box::count = 0;
@@ -98,4 +115,6 @@ int main(){
         cout << "b2 is the larger Box\n";
     else
         cout << "b1 is the larger Box\n";
+
+    cout << "Box 1: \n" << b1;
 }
