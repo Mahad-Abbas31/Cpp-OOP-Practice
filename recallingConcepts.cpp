@@ -1,32 +1,48 @@
 #include <iostream>
-
 using namespace std;
 
-// ___ Not Change 
-// void func1(int i){
-//     static int staticInt = i;   
-//     cout << staticInt << endl;
-// }
+class Rectangle;  // 👈 Forward declaration
 
-// ___ Change
-// void func1(int i){
-//     static int staticInt;
-//     staticInt = i;   
-//     cout << staticInt << endl;
-// }
+class Square{
+    int	width,	height;  
+  public:
 
-// ___ Dedault Value (0)
-void func1(int i){
-    static int staticInt;
-    cout << staticInt << endl;
+    void set_values(int	x,	int	y);
+    friend void add(Square, Rectangle);
+};
+
+void Square::set_values(int x, int y){  
+    width = x;
+    height = y;
 }
 
 
-int main(){
+class Rectangle{
+    int	width, height;
+  public:
 
-    func1(1);
-    func1(2);
-    // ___ Error (Accces is Limited to the Function while LifeTime is throughout the Program)
-    // cout << staticInt << endl;              
+    void set_values(int	x, int y);
+    friend void add(Square, Rectangle);
 
+};
+
+void Rectangle::set_values(int x, int y){  
+    width = x;
+    height = y;
 }
+
+void add(Square A, Rectangle B){
+    cout << "Width = "<< A.width + B.width<< endl;
+    cout << "Height = " << A.height + B.height <<  endl;
+}
+
+int main() {
+    Square s;  
+    Rectangle r ;
+    s.set_values(1,1);
+    r.set_values(2, 3);  
+    add(s, r);
+    
+    return 0;
+}
+
