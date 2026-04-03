@@ -73,13 +73,141 @@ ________________________________________________________________________
  Generalization     -   Bottom-up     -    Combine common features     
  Subtyping          -   Top-down      -    Extend functionality        
  Specialization     -   Top-down      -    Refine or override behavior 
-________________________________________________________________________
-
-*/
+________________________________________________________________________*/
 
 #include<iostream>
 
 using namespace std;
+
+class Person{
+    string name;
+    int age;
+    string gender;
+
+    public:
+    // ____ Constructor
+    Person(string name = "Unknown", int age = 0, string gender = "Unknown") {
+        this->name = name;
+        this->age = age;
+        this->gender = gender;
+    }
+
+    // ____ Setters 
+    void setName(string name){          this->name = name;       }
+    void setAge(int age){               this->age = age;         }  
+    void setGender(string gender){      this->gender = gender;   }
+
+    // ____ Getters
+    string getName() const{             return name;             }
+    string getGender() const{           return gender;           }
+    int getAge() const{                 return age;              }
+
+    // ____ Behaviors
+    void eat() const{
+        cout << name << " is eating." << endl;
+    }
+
+    void walk() const{
+        cout << name << " is walking." << endl;
+    }
+
+    void sleep() const{
+        cout << name << " is sleeping." << endl;
+    }
+};
+
+class Student: public Person{
+    string program;
+    int rollNumber;
+    int semester;
+
+    public:
+
+    // ____ Constructor
+    Student(string n="Unknown", int a=0, string g="Unknown", string p="Unknown", int r=0, int s=0) : Person(n, a, g){
+        program = p;
+        rollNumber = r;
+        semester = s;
+    }
+
+    // ____ Setters 
+    void setProgram(string program){            this->program = program;           }
+    void setRollNumber(int rollNumber){         this->rollNumber = rollNumber;     }
+    void setSemester(int semester){             this->semester = semester;         }
+
+    // ____ Getters
+    string getProgram() const{          return program;          }
+    int getRollNumber() const{          return rollNumber;       }
+    int getSemester() const{            return semester;         }
+
+    // ____ Additional Behaviors
+    void study() const{
+        cout << getName() << " is studying." << endl;
+    }
+
+    void attendClass() const{
+        cout << getName() << " is attending class." << endl;
+    }
+};
+
+class Teacher : public Person{
+    string designation;
+    string university;
+
+    public:
+    // ____ Constructor   
+    Teacher(string d="Unknown", string u="Unknown", string n="Unknown", int a=0, string g="Unknown") : Person(n, a, g){
+        this->designation = d;
+        this->university = u;
+    }
+
+    // ____ Setters
+    void setDesignation(string designation){    this->designation = designation;    }
+    void setUniversity(string university){      this->university = university;      }
+
+    // ____ Getters
+    string getDesignation() const{      return designation;     }
+    string getUniversity() const{       return university;      }
+
+    // ____ Additional Behaviors
+    void teach() const{
+        cout << getName() << " is teaching." << endl;
+    }
+
+    void takeExam() const{
+        cout << getName() << " is taking an exam." << endl;
+    }
+};
+
+class Doctor : public Person{
+    string specialization;
+    string hospital;
+
+    public:
+    // ____ Constructor
+    Doctor(string s="Unknown", string h="Unknown", string n="Unknown", int a=0, string g="Unknown") : Person(n, a, g){
+        this->specialization = s;
+        this->hospital = h;
+    }
+
+    // ____ Setters
+    void setSpecialization(string specialization){   this->specialization = specialization;   }
+    void setHospital(string hospital){               this->hospital = hospital;               }
+
+    // ____ Getters
+    string getSpecialization() const{   return specialization;  }
+    string getHospital() const{         return hospital;        }
+
+    // ____ Additional Behaviors
+    void checkup() const{
+        cout << getName() << " is doing a checkup." << endl;
+    }
+
+    void prescribe() const{
+        cout << getName() << " is prescribing medicine." << endl;
+    }
+};
+
 
 int main(){
 
