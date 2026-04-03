@@ -19,6 +19,13 @@ using namespace std;
      - When Parent Class has a defined constructor, it must be placed after the Child Class Constructors
       after the symbol ":".  
 
+ -> What is inherited from the base class?
+     - Every member of a base class except:
+        > constructors and its destructor
+        > friends
+ 
+ -> UML Notation for Inheritance
+     - A solid line with a closed, unfilled arrowhead pointing from the child class to the parent class. 
 */
 
 // ___ Parent Class
