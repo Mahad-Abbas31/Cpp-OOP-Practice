@@ -22,9 +22,12 @@
         . Unary operators and assignment operator are right associative
     - Always write code representing the operator
         . Adding subtraction code inside the + operator will create chaos
+    - Overloading << , >> operators work same for the fout and fin 
+      so don't have to overload them separately.
 */
 
 #include<iostream>
+#include<fstream>
 
 using namespace std;
 
@@ -109,32 +112,38 @@ class Box{
     */
     // ____ (<<)Stream Operator Overloading
     friend ostream &operator<<(ostream &output, const Box &b){
-            output << "\nHeight: " << b.hei
-                   << "\n Width: " << b.wid
-                   << "\nLength: " << b.len << endl;
-            
-            return output;
+        output << "\nHeight: " << b.hei
+               << "\n Width: " << b.wid
+               << "\nLength: " << b.len << endl;
+        
+        return output;
     }
 
     // ____ (>>)Stream Operator Overloading (No const class for input)
     friend istream &operator>>(istream &input, Box &b){
-            input >> b.hei >> b.wid >> b.len;
-            
-            return input;
+        input >> b.hei >> b.wid >> b.len;
+        return input;
     }
-
 };
 
 int Box::count = 0;
 
 int main(){
+    ofstream fout("practiceFile.txt", ios::app);
+
     Box b1(2, 3, 4);
     Box b2(4, 5, 2);
 
-    if(b1<b2)
-        cout << "b2 is the larger Box\n";
-    else
-        cout << "b1 is the larger Box\n";
-
-    cout << "Box 1: \n" << b1;
+    if(b1<b2){
+        cout << "b2 is the larger Box\n"
+             << b2;
+        fout << "b2 is the larger Box\n"
+             << b2;
+    }
+    else{
+        cout << "b1 is the larger Box\n"
+             << b1;
+        fout << "b1 is the larger Box\n"
+             << b1;
+    }
 }
