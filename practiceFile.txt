@@ -1,0 +1,6 @@
+Hello ! I am writing to a file using C++.
+b2 is the larger Box
+
+Height: 5
+ Width: 2
+Length: 4

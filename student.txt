@@ -1,14 +1,10 @@
-
---- Student Report ---
-Name: Mahad
-ID: 2501366
-Marks: 90 97 99 98 
-Total: 384
-Average: 96
-
---- Student Report ---
-Name: Hammad
-ID: 2501302
-Marks: 79 97 78 89 58 
-Total: 401
-Average: 80.2
+Ali 12 15 40 85
+Ahmed 10 14 38 80
+Sara 15 15 45 90
+Ayesha 13 12 35 78
+Usman 9 11 30 70
+Hina 14 13 42 88
+Bilal 8 10 28 65
+Zara 15 14 44 92
+Hamza 11 12 36 75
+Fatima 13 15 41 87
